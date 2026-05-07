@@ -1,6 +1,6 @@
 import { SITE } from "./site.js";
 
-const baseImage = `${SITE.url}/og-image.jpg`;
+const baseImage = `${SITE.url}/og-image.png`;
 
 export const SEO_BY_PATH = {
   "/": {
