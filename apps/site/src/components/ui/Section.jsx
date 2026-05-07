@@ -29,6 +29,7 @@ export function Section({ id, title, children, backgroundImage, className = "" }
         "flex items-center justify-center text-center text-paper",
         "py-section-y px-section-x",
         "transition-[opacity,transform] duration-700 ease-soft",
+        "bg-primary-ink",
         revealClass,
         className
       ].join(" ")}
@@ -37,7 +38,8 @@ export function Section({ id, title, children, backgroundImage, className = "" }
           ? {
               backgroundImage: `url(${bgUrl})`,
               backgroundSize: "cover",
-              backgroundPosition: "center"
+              backgroundPosition: "center",
+              backgroundColor: "#1a3540"
             }
           : undefined
       }
