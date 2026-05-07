@@ -1,0 +1,355 @@
+/* Diseñado y desarrollado por ORBEN */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f7f7f7;
+    color: #3a3a3a;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.75);
+    padding: 10px 0;
+    backdrop-filter: blur(6px);
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    transition: color .3s ease;
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    color: #00c38b;
+}
+
+/* HEADER */
+.parallax-header {
+    background-image: url('../images/ceter-portada.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.parallax-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.parallax-header p {
+    font-size: 20px;
+    color: #eee;
+    max-width: 700px;
+    margin: 15px auto 0;
+}
+
+/* SECTIONS */
+.content-section {
+    width: 100%;
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+}
+
+.section-container {
+    width: min(900px, 90%);
+    text-align: center;
+}
+
+.content-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #202020;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 18px;
+    color: #444;
+    margin: 10px 0 30px;
+}
+
+/* ICONOS SECCIÓN */
+.icon-section {
+    width: 80px;
+    height: 80px;
+    background: #00c38b15;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.icon-section svg {
+    width: 40px;
+    fill: #00a371;
+}
+
+/* SEPARADOR */
+.divider {
+    height: 2px;
+    width: 120px;
+    background: #00c38b45;
+    margin: 0 auto;
+}
+
+/* CTA BUTTONS */
+.cta-button {
+    display: inline-block;
+    background: #00a371;
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .3s ease;
+}
+
+.cta-button:hover {
+    background: #007f58;
+}
+
+/* BADGE */
+.badge-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.badge-number {
+    display: inline-block;
+    background: #00c38b;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 80px;
+    margin-bottom: 10px;
+}
+
+/* TIMELINE */
+.phases-wrapper {
+    margin: 30px auto;
+    width: min(800px, 95%);
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: #00c38b50;
+}
+
+.phase {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.phase .number {
+    background: #00a371;
+    color: #fff;
+    font-weight: bold;
+    width: 54px;
+    height: 54px;
+    display: inline-block;
+    line-height: 54px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* FOOTER */
+.site-footer {
+    background: #111;
+    color: #ccc;
+    padding: 60px 20px 20px;
+}
+
+.footer-container {
+    width: min(1100px, 90%);
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-column a {
+    color: #00c38b;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-icon {
+    width: 18px;
+    margin-right: 8px;
+    fill: #00c38b;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 40px;
+    color: #888;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp-float img {
+    width: 52px;
+    height: 52px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .parallax-header h1 {
+        font-size: 50px;
+    }
+    .main-nav ul {
+        display: none;
+    }
+}
+
+/* Sección proceso de atención */
+.proceso-atencion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-top: 80px;
+    background: #ffffff;
+}
+
+.proceso-imagen {
+    flex: 1 1 35%;
+    min-height: 420px;
+}
+
+.proceso-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proceso-items {
+    flex: 1 1 65%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #ffffff;
+}
+
+.proceso-item {
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.proceso-item h3 {
+    font-size: 1.6rem;
+    color: #1b0d39;
+    margin: 12px 0;
+    font-weight: 800;
+}
+
+.proceso-item p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.icono img {
+    width: 65px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .proceso-item {
+        width: 100%;
+        text-align: center;
+    }
+    .icono img {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
