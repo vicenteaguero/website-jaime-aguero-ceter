@@ -1,0 +1,71 @@
+<!-- chat-widget.html - CETER -->
+<div id="ceter-root" style="position:fixed;right:20px;bottom:20px;width:360px;max-height:78vh;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.15);overflow:hidden;font-family:Inter,Arial,Helvetica,sans-serif;z-index:9999;">
+  <div id="ceter-header" style="padding:12px 14px;background:linear-gradient(90deg,#0f766e,#16a34a);color:#fff;display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-weight:700;font-size:14px;">CETER — Orientación</div>
+      <div style="font-size:11px;opacity:0.9;">Soporte en rehabilitación de adicciones</div>
+    </div>
+    <button id="ceter-close" aria-label="Cerrar" style="background:transparent;border:none;color:rgba(255,255,255,0.9);font-weight:700;cursor:pointer;">✕</button>
+  </div>
+
+  <div id="ceter-messages" style="padding:12px;overflow:auto;height:360px;background:#ffffff;"></div>
+
+  <form id="ceter-form" style="display:flex;gap:8px;padding:12px;background:#f6faf6;align-items:center;">
+    <input id="ceter-input" autocomplete="off" placeholder="Escribe tu pregunta..." style="flex:1;padding:10px;border-radius:10px;border:1px solid #e6f4ea;outline:none"/>
+    <button type="submit" style="padding:10px 12px;border-radius:10px;border:none;background:#16a34a;color:white;font-weight:600;cursor:pointer;">Enviar</button>
+  </form>
+</div>
+
+<script>
+(function(){
+  const root = document.getElementById("ceter-root");
+  const messagesEl = document.getElementById("ceter-messages");
+  const form = document.getElementById("ceter-form");
+  const input = document.getElementById("ceter-input");
+  const closeBtn = document.getElementById("ceter-close");
+
+  closeBtn.addEventListener("click", ()=> root.style.display = "none");
+
+  let conversation = [{ role:"system", content:"Eres un asistente claro, cordial e inspirador, especializado en rehabilitación de adicciones. Respondes en español." }];
+
+  function renderMessage(role,text){
+    const wrapper=document.createElement("div");
+    wrapper.style.marginBottom="10px";
+    if(role==="user"){
+      wrapper.innerHTML='<div style="text-align:right;"><div style="display:inline-block;background:#ecfdf5;padding:10px;border-radius:10px;">'+escapeHtml(text)+'</div><div style="font-size:11px;opacity:0.7;margin-top:4px;">Tú</div></div>';
+    } else {
+      wrapper.innerHTML='<div style="text-align:left;"><div style="display:inline-block;background:#f3f7f3;padding:10px;border-radius:10px;">'+escapeHtml(text)+'</div><div style="font-size:11px;opacity:0.7;margin-top:4px;">Agente</div></div>';
+    }
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop=messagesEl.scrollHeight;
+  }
+
+  function escapeHtml(s){ return s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
+
+  renderMessage("assistant","Hola 👋 Soy un asistente para orientación sobre rehabilitación. ¿En qué puedo ayudarte hoy?");
+
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const text=input.value.trim();
+    if(!text) return;
+    renderMessage("user",text);
+    conversation.push({role:"user",content:text});
+    input.value="";
+    const typing=document.createElement("div");typing.textContent="Escribiendo...";messagesEl.appendChild(typing);messagesEl.scrollTop=messagesEl.scrollHeight;
+
+    try{
+      const resp=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:conversation,useKnowledge:true})});
+      const data=await resp.json();
+      typing.remove();
+      const reply=data.reply?.content||"Lo siento, no pude obtener respuesta.";
+      renderMessage("assistant",reply);
+      conversation.push({role:"assistant",content:reply});
+      if(conversation.length>20) conversation=[conversation[0],...conversation.slice(-18)];
+    }catch(err){
+      typing.remove();
+      renderMessage("assistant","Error de conexión.");
+      console.error(err);
+    }
+  });
+})();
+</script>
