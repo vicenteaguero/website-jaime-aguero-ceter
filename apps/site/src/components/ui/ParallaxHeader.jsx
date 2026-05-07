@@ -5,11 +5,12 @@ export function ParallaxHeader({ title, subtitle, image = "/images/header-1920.w
 
   return (
     <header
-      className="relative isolate overflow-hidden flex items-center justify-center text-center text-paper min-h-[70vh] md:min-h-[80vh] px-section-x"
+      className="relative isolate overflow-hidden flex items-center justify-center text-center text-paper min-h-[70vh] md:min-h-[80vh] px-section-x bg-primary-ink"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundColor: "#1a3540",
         backgroundAttachment: reduced ? "scroll" : "fixed"
       }}
     >
