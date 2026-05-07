@@ -1,0 +1,14 @@
+{
+  "name": "CETER",
+  "short_name": "CETER",
+  "description": "Centro Terapéutico de Rehabilitación de Adicciones y Salud Mental",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f4f9",
+  "theme_color": "#264954",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon-512-rounded.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
