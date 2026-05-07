@@ -1,0 +1,28 @@
+# Deps
+node_modules/
+apps/*/node_modules/
+
+# Builds
+apps/*/dist/
+apps/*/.vite/
+.cache/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+.idea/
+.vscode/
+
+# Image optimization intermediates
+/tmp/
+*.webp.tmp
+
+# Original archive (kept locally, not pushed)
+archive/
