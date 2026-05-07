@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6b7a8f; /* --color-primario */
+      }
+      .cls-2 {
+        fill: #ffffff; /* --color-blanco */
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 60px;
+        font-weight: bold;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="50" cy="50" r="50"/>
+  <text class="cls-2" x="50%" y="50%" dominant-baseline="central" text-anchor="middle" dy=".03em">C</text>
+</svg>
