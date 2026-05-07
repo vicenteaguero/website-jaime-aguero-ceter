@@ -30,6 +30,11 @@ export function Nav() {
   }, [open]);
 
   const onAnchor = location.pathname === "/";
+  const opaque = scrolled || open || !onAnchor;
+  const linkColor = opaque
+    ? "text-ink hover:text-primary"
+    : "text-paper hover:text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]";
+  const burgerColor = opaque ? "text-primary" : "text-paper drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]";
 
   return (
     <nav
@@ -69,7 +74,7 @@ export function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="px-3 py-3 text-fluid-xs font-bold text-ink hover:text-primary transition-colors"
+                className={`px-3 py-3 text-fluid-xs font-bold transition-colors ${linkColor}`}
               >
                 {link.label}
               </a>
@@ -79,7 +84,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-primary hover:bg-secondary/50"
+          className={`md:hidden inline-flex items-center justify-center w-11 h-11 rounded-md hover:bg-secondary/50 transition-colors ${burgerColor}`}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
