@@ -46,10 +46,22 @@ export function Nav() {
       <div className="mx-auto max-w-shell flex items-center justify-between">
         <Link
           to="/"
-          className="font-display font-semibold text-fluid-lg text-primary"
+          className="inline-flex items-center gap-2"
           aria-label={`${SITE.brand} — Inicio`}
         >
-          {SITE.brand}
+          <picture>
+            <source type="image/webp" srcSet="/images/logo-640.webp" />
+            <img
+              src="/images/logo-1280.jpg"
+              alt={`${SITE.brand} logo`}
+              width="110"
+              height="50"
+              className="h-9 sm:h-10 w-auto"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
+          <span className="sr-only">{SITE.brand}</span>
         </Link>
 
         <ul className="hidden md:flex items-center gap-1">
