@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #333333;
   }
 
   @media (prefers-reduced-motion: reduce) {
